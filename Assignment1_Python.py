@@ -77,7 +77,7 @@ Q16. Write a code that gives following as an output.
 iNeuroniNeuroniNeuroniNeuron
 ```
 
-Ans. print('iNeuroniNeuroniNeuroniNeuron')
+Ans. print('iNeuron'*4)
 
 
 
