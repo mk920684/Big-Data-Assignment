@@ -1,0 +1,134 @@
+Q1. How do you load a CSV file into a Pandas DataFrame?
+
+import pandas as pd
+
+input_data=pd.read_csv('file.csv')
+
+Q2. How do you check the data type of a column in a Pandas DataFrame?
+We can use type function to check type of column.
+
+type(in_data['Name'])
+
+
+Q3. How do you select rows from a Pandas DataFrame based on a condition?
+We can use mutliple condition to filter out data based on conditional operator.
+
+in_data.loc[in_data['Location'] == 'Bettiah']
+
+Q4. How do you rename columns in a Pandas DataFrame?
+
+in_data.rename(columns={'Name':'NAME'}, inplace=True)
+
+Q5. How do you drop columns in a Pandas DataFrame?
+Drop method is used to remove column from python dataframe
+
+in_data.drop(['Company'],axis=1,inplace=True)
+
+Q6. How do you find the unique values in a column of a Pandas DataFrame?
+Unique function is used to find uinque value from dataframe column.
+
+copy.Location.unique()
+
+
+Q7. How do you find the number of missing values in each column of a Pandas DataFrame?
+Isnull is used to identified the missing values in dataframe and sum is used to sum all missing values and show total count.
+in_data['Company'].isnull().sum()
+
+
+Q8. How do you fill missing values in a Pandas DataFrame with a specific value?
+fillna method is used to fill missing values in dataframes.
+
+in_data.fillna('EY')
+
+Q9. How do you concatenate two Pandas DataFrames?
+Concat method is used to add two dataframes
+
+pd.concat([in_data,copy],ignore_index=True)
+
+Q10. How do you merge two Pandas DataFrames on a specific column?
+merge function can be used to merge two dataframes on a specific column
+
+in_data.merge(copy[[ 'Location']], on='Location')
+
+Q11. How do you group data in a Pandas DataFrame by a specific column and apply an aggregation function?
+use of groupby function to group data based on a particular column, and then we can apply aggregate function.
+grouped_data=in_data.groupby('Location').sum()
+
+Q12. How do you pivot a Pandas DataFrame?
+Pivot method can be used to convert df into pivot.
+
+in_data.pivot('Name','Location','Company')
+
+Q13. How do you change the data type of a column in a Pandas DataFrame?
+astype can be used to change data type of column in dataframe.
+
+in_data['Salary']=in_data['Salary'].astype('object')
+in_data.info()
+
+Q14. How do you sort a Pandas DataFrame by a specific column?
+sort_values function is used to sort values based on column.
+in_data.sort_values(by=['Name'])
+
+Q15. How do you create a copy of a Pandas DataFrame?
+copy function is used to copy dataframes
+
+copied_data=in_data.copy()
+
+Q16. How do you filter rows of a Pandas DataFrame by multiple conditions?
+
+df_copy.loc[(df_copy['Name']=='Mukesh') & (df_copy['Salary']>0)]
+
+Q17. How do you calculate the mean of a column in a Pandas DataFrame?
+mean function is used to calculate mean.
+
+df_copy['Salary'].mean()
+
+Q18. How do you calculate the standard deviation of a column in a Pandas DataFrame?
+std function is used calculate standared devation for a given column
+
+df_copy['Salary'].std()
+
+
+Q19. How do you calculate the correlation between two columns in a Pandas DataFrame?
+corr is used to find correlation 
+
+print(df_copy.corr())
+
+
+Q20. How do you select specific columns in a DataFrame using their labels?
+
+in_data['Salary']
+
+Q21. How do you select specific rows in a DataFrame using their indexes?
+
+
+in_data[1:3]
+
+Q22. How do you sort a DataFrame by a specific column?
+
+in_data.sort_values(by=['Name'])
+
+
+Q23. How do you create a new column in a DataFrame based on the values of another column?
+
+Q24. How do you remove duplicates from a DataFrame?
+
+in_data.drop_duplicates()
+
+Q25. What is the difference between .loc and .iloc in Pandas?
+
+LOC
+
+Label-based data selector	
+Indices should be sorted in order, or loc[ ] will only select the mentioned indices when slicing	
+Indices should be numerical, else slicing cannot be done	
+The end index is included during slicing	
+Accepts bool series or list in conditions	
+
+.iLOC
+
+Index-based data selector
+Indices need not be sorted in order when slicing
+Indices can be numerical or categorical
+The end index is excluded during slicing
+only accepts bool list in conditions
